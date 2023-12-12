@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { GitHubUsersResult } from '../../interfaces/githubusersresult';
 import { GitHubUserItem } from '../../interfaces/githubuseritem';
 import { Router } from '@angular/router';
+import { ForbiddenValidatorDirective } from '../../directives/forbidden-user.directive';
 
 @Component({
   selector: 'app-searcher',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule, HttpClientModule, ForbiddenValidatorDirective],
   templateUrl: './searcher.component.html',
   styleUrl: './searcher.component.scss'
 })

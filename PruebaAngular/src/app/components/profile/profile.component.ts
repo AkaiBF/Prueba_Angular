@@ -24,7 +24,6 @@ export class ProfileComponent implements OnInit {
       this.githubSrv.userDetail(this.userlogin).subscribe({
         next:(data: GitHubUser) => {
           this.user = data;
-          console.log(this.user);
         }, error: () => {
         }
       });
