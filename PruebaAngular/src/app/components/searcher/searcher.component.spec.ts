@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SearcherComponent } from './searcher.component';
 
 describe('SearcherComponent', () => {
@@ -19,5 +18,8 @@ describe('SearcherComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.githubUsers).toEqual([]);
+    expect(component.query).toEqual('');
+    expect(component.usersSearched).toEqual(false);
   });
 });

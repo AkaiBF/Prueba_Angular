@@ -1,8 +1,12 @@
 .center {
   width: 33%;
   margin: 0 auto;
+  padding-top: 5%;
+}
+
+.center.pt15 {
+  padding-top: 15%;
   vertical-align: middle;
-  padding-top:15%;
 }
 
 .input-group {
@@ -12,4 +16,33 @@
 
 .center button {
   width: 100%;
+}
+
+.ghu-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ghu-col {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.ghu-row:nth-child(even) {
+  background-color: #ddd;
+}
+
+.ghu-col.right {
+  align-items: flex-end;
+}
+
+#usersTable {
+  width: 33%;
+  margin: 0 auto;
+  margin-top: 5%;
+  padding: 1em;
+  border-radius: 1em;
+  border: 1px solid #ccc;
 }
