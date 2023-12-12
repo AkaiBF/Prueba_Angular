@@ -9,7 +9,7 @@
 @if (usersSearched) {
 <div id="usersTable">
   @for (user of githubUsers; track user.login) {
-    <div class="ghu-row">
+    <div class="ghu-row" (click)="goToProfile(user)">
       <div class="ghu-col left">{{ user.login }}</div>
       <div class="ghu-col right">{{ user.id }}</div>
     </div>
