@@ -12,5 +12,5 @@ import { HeaderComponent } from './components/shared/header/header.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'PruebaAngular';
+  title = 'Github Users Search Engine';
 }

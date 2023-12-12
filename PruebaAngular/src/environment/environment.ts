@@ -1,4 +1,5 @@
 export const environment = {
   production: false,
-  githubApiUrl: 'https://api.github.com/search/users?q='
+  githubApiUserListUrl: 'https://api.github.com/search/users?q=',
+  githubApiUserDetailUrl: 'https://api.github.com/users/'
 }
