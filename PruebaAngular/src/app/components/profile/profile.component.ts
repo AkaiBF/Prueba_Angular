@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { GitHubUser } from '../../interfaces/githubuser';
 import { GithubService } from '../../services/github.service';
+import { ErrorsService } from '../../services/errors.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,9 @@ export class ProfileComponent implements OnInit {
   userlogin: string = '';
 
   constructor(private route: ActivatedRoute, 
-              private githubSrv: GithubService) {
+              private githubSrv: GithubService,
+              private errorSrv: ErrorsService,
+              private router: Router) {
               }
 
   ngOnInit() {
@@ -24,9 +27,14 @@ export class ProfileComponent implements OnInit {
       this.githubSrv.userDetail(this.userlogin).subscribe({
         next:(data: GitHubUser) => {
           this.user = data;
-        }, error: () => {
+        }, error: (err) => {
+          this.errorSrv.lastError = err.message;
+          this.router.navigate(['/error']);
         }
       });
-    }, error: () => {}});
+    }, error: (err) => {
+      this.errorSrv.lastError = err.message;
+      this.router.navigate(['/error']);
+    }});
   }
 }
