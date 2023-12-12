@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, app-root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+app-header {
+  height: 10%;
+  width: 100%;
+  background-color: #2a2a3a;
+  color: #d0d0e0;
+}
+
+.content {
+  width: 100%;
+  height: 90%;
+  overflow: auto;
+  min-height: 90%;
+}
+
+app-footer {
+  height: 20%;
+  background-color: #2a2a3a;;
+  display: flex;
+  color: #d0d0e0;
+}
+
+.nf-content {
+  height: 80%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+a {
+  color: #4a4a5a;
+}

@@ -1,0 +1,12 @@
+.footer-content {
+  width: 100%;
+  margin: 2em 20em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.footer-content .column {
+  text-decoration: underline;
+}

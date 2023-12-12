@@ -1,0 +1,41 @@
+<div class="center" [class.pt15]="!usersSearched">
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+    <input type="text" 
+           id="userQuery" 
+           name="userQuery" 
+           minlength="4" 
+           required
+           appForbiddenUser="pertierra" 
+           [(ngModel)]="query"
+           class="form-control" 
+           placeholder="Github's username" 
+           aria-label="Github's username" 
+           aria-describedby="addon-wrapping"
+           #userQuery="ngModel">
+  </div>
+  <div class="errors">
+    @if (userQuery.errors?.['minlength']) {
+    <div>
+      Username query must be at least 4 characters long.
+    </div>
+    }
+    @if (userQuery.errors?.['forbiddenUser']) {
+    <div>
+      Username query cannot be "pertierra".
+    </div>
+    }
+  </div>
+  <button [disabled]="userQuery.errors?.['required'] || userQuery.errors?.['minlength'] || userQuery.errors?.['forbiddenUser']" type="button" class="btn btn-primary" (click)="search()">Search</button>
+</div>
+
+@if (usersSearched) {
+<div id="usersTable">
+  @for (user of githubUsers; track user.login) {
+    <div class="ghu-row" (click)="goToProfile(user)">
+      <div class="ghu-col left">{{ user.login }}</div>
+      <div class="ghu-col right">{{ user.id }}</div>
+    </div>
+  }
+</div>
+}
