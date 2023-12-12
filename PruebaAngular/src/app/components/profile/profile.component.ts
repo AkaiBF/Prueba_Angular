@@ -16,7 +16,6 @@ export class ProfileComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
               private githubSrv: GithubService) {
-                console.log(this.userlogin)
               }
 
   ngOnInit() {
