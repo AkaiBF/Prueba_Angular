@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { GitHubUser } from '../../interfaces/githubuser';
 import { GithubService } from '../../services/github.service';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
       this.githubSrv.userDetail(this.userlogin).subscribe({
         next:(data: GitHubUser) => {
           this.user = data;
+          console.log(this.user);
         }, error: () => {
         }
       });

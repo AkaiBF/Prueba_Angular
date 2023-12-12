@@ -1,7 +1,7 @@
-import { GitHubUser } from './githubuser';
+import { GitHubUserItem } from './githubuseritem';
 
 export interface GitHubUsersResult {
   incomplete_results: boolean;
-  items: GitHubUser[];
+  items: GitHubUserItem[];
   total_count: number;
 }

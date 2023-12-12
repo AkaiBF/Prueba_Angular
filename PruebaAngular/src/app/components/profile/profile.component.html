@@ -1,1 +1,58 @@
-<p>Recibido el login {{ userlogin }}</p>
+@if (user) {
+<div class="profile-card">
+  <div class="profile-card-header">
+    <img [src]="user.avatar_url" [alt]="user.login">
+    <div class="profile-identifier">
+      <h1>{{ user.login }}</h1>
+      <h2>{{ user.id }}</h2>
+    </div>
+  </div>
+  <div class="profile-card-info">
+    <div class="profile-card-info-item">
+      <div class="bold">Location:</div>
+      <div>{{ user.location }}</div>
+    </div>
+    <div class="profile-card-info-item">
+      <div class="bold">Company:</div>
+      <div>{{ user.company }}</div>
+    </div>
+    @if (user.bio) {
+      <br>
+      <div class="profile-card-bio">
+        <b>Bio: </b>
+        {{ user.bio }}
+      </div>
+    }
+    <br>
+    <div class="profile-card-row">
+      <div class="profile-card-info-item half-item">
+        <div class="bold">Followers:</div>
+        <div>{{ user.followers }}</div>
+      </div>
+      <div class="profile-card-info-item half-item">
+        <div class="bold">Following:</div>
+        <div>{{ user.following }}</div>
+      </div>
+    </div>
+    <div class="profile-card-row">
+      <div class="profile-card-info-item third-item">
+        <i class="fa-brands fa-github"></i>
+        <div><a target="_blank" [href]="'https://github.com/' + user.login">{{ user.login }}</a></div>
+      </div>
+      <div class="profile-card-info-item third-item">
+        <i class="fa-brands fa-x-twitter"></i>
+        <div><a target="_blank" [href]="'https://x.com/' + user.twitter_username">{{ user.twitter_username }}</a></div>
+      </div>
+      <div class="profile-card-info-item third-item">
+        <i class="fa-regular fa-envelope"></i>
+        <div>{{ user.email }}</div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+}
+
+<div class="return">
+  <a [routerLink]="['/']"><i class="fa-solid fa-arrow-left"></i> Return to searcher</a>
+</div>

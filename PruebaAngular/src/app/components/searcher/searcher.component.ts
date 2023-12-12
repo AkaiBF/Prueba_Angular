@@ -3,7 +3,7 @@ import { GithubService } from '../../services/github.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GitHubUsersResult } from '../../interfaces/githubusersresult';
-import { GitHubUser } from '../../interfaces/githubuser';
+import { GitHubUserItem } from '../../interfaces/githubuseritem';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrl: './searcher.component.scss'
 })
 export class SearcherComponent {
-  githubUsers: GitHubUser[] = [];
+  githubUsers: GitHubUserItem[] = [];
   query: string = '';
   usersSearched: boolean = false;
 
@@ -29,7 +29,7 @@ export class SearcherComponent {
     })
   }
 
-  compareGitHubUsers(user1: GitHubUser, user2: GitHubUser): number {
+  compareGitHubUsers(user1: GitHubUserItem, user2: GitHubUserItem): number {
     if(user1.login < user2.login) {
       return -1;
     } else {
@@ -38,7 +38,7 @@ export class SearcherComponent {
     }
   }
 
-  goToProfile(user: GitHubUser): void {
+  goToProfile(user: GitHubUserItem): void {
     this.router.navigate(['/profile', user.login]);
   }
 }

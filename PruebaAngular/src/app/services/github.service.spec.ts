@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { GitHubUsersResult } from './../interfaces/githubusersresult';
-import { GitHubUser } from './../interfaces/githubuser';
+import { GitHubUser } from '../interfaces/githubuser';
 import { GithubService } from './github.service';
 import { HttpClient } from '@angular/common/http';
 import { defer } from 'rxjs';
@@ -44,20 +44,36 @@ describe('GithubService', () => {
   it('can search one user', (done: DoneFn) => {
     const mockResult: GitHubUser = {
       avatar_url: '',
+      bio: '',
+      blog: '',
+      company: '',
+      created_at: '',
+      email: '',
       events_url: '',
+      followers: 0,
       followers_url: '',
+      following: 0,
       following_url: '',
       gists_url: '',
+      gravatar_id: '',
+      hireable: false,
       html_url: '',
       id: 0,
-      login: 'test',
+      location: '',
+      login: '',
+      name: '',
+      node_id: '',
       organizations_url: '',
+      public_gists: 0,
+      public_repos: 0,
       received_events_url: '',
       repos_url: '',
-      score: 0,
+      site_admin: false,
       starred_url: '',
       subscriptions_url: '',
+      twitter_username: '',
       type: '',
+      updated_at: '',
       url: ''
     };
     spy.get.and.returnValue(asyncData(mockResult));
